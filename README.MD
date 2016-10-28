@@ -6,6 +6,7 @@
 +   `cd ${folder} && npm install`
 +   `npm run build`
 +   クールームでロード`dist`
+
 ### 意味
 意味はありません
 
