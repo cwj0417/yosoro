@@ -2,62 +2,14 @@
 <head>
     <style>
         body {
-            height: 1536px;
-            width: 4171px;
-            background: url('./imgs/you_big_bg.png');
+            height: 600px;
+            width: 800px;
+            background: #aac9ff;
         }
     </style>
 </head>
 <body>
-<div id="countdown">
-    <input type="number" placeholder="minutes" v-model="minutes" v-on:keyup.enter="add">
-    <input type="text" placeholder="content" v-model="content" v-on:keyup.enter="add">
-    <table v-show="list.length > 0">
-        <tr>
-            <th>内容</th>
-            <th>时间</th>
-            <th>操作</th>
-        </tr>
-        <tr v-for="item of list">
-            <td>{{item.content}}</td>
-            <td>{{item.countdown}}</td>
-            <td>
-                <button>clear</button>
-            </td>
-        </tr>
-    </table>
-    <table v-show="history.length > 0">
-        <tr>
-            <th>告警</th>
-            <th>时间</th>
-        </tr>
-        <tr v-for="item of history">
-            <td>{{item.content}}</td>
-            <td>{{item.ts|date}}</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button v-on:click="clearhistory">clear History</button>
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="todo">
-    <input type="text" v-model="content" v-on:keyup.enter="add" placeholder="todo">
-    <table v-show="list.length > 0">
-        <tr>
-            <th>内容</th>
-            <th>时间</th>
-            <th>操作</th>
-        </tr>
-        <tr v-for="(item, index) of list">
-            <td>{{item.content}}</td>
-            <td>{{item.ts|date}}</td>
-            <td>
-                <button v-on:click="remove(index)">clear</button>
-            </td>
-        </tr>
-    </table>
+<div id="popup">
 </div>
 </body>
 <script src="scripts/popup.js"></script>

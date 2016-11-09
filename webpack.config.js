@@ -14,6 +14,7 @@ var config = {
         filename: "[name].js"
     },
     resolve: {
+        extensions: ['', '.js', '.vue'],
         root: [path.join(__dirname, "node_modules"), srcPath],
         alias: {
             "vue$": "vue/dist/vue.js"
@@ -30,6 +31,9 @@ var config = {
             test: /jquery/,
             loader: "expose?jQuery"
         }, {
+            test: /\.vue$/,
+            loader: "vue"
+        },{
             test: /html$/,
             exclude: /index.html/,
             loader: "file?name=/[name].html"
