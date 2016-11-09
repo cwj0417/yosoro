@@ -23,6 +23,6 @@ then
     done
     echo "" >> RELEASE.MD;
     git add .
-    git commit -m 'version(${version})'
+    git commit -m 'version'${version}''
     git push yosoro master:master
 fi
