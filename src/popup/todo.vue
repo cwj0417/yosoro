@@ -3,9 +3,9 @@
         <input type="text" v-model="content" @keyup.enter="add" placeholder="todo">
         <table v-show="list.length > 0">
             <tr>
-                <th>内容</th>
-                <th>时间</th>
-                <th>操作</th>
+                <th>item</th>
+                <th>created</th>
+                <th>operation</th>
             </tr>
             <tr v-for="(item, index) of list">
                 <td>{{item.content}}</td>
