@@ -10,8 +10,6 @@
     }
 </style>
 <script>
-    import {Message} from "../libs/chrome";
-    let sender = Message.sender;
     export default {
         data() {
             return {
@@ -22,10 +20,10 @@
         methods: {
             add: function () {
             if (this.content && this.minutes) {
-                    sender.send("countdown.set", {
+                    this.$store.commit(`countdown/set`, {
                         content: this.content,
                         timeout: this.minutes * 60
-                    });
+                    })
                     this.content = ``;
                     this.minutes = ``;
                 }

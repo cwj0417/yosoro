@@ -12,3 +12,7 @@
 ### v0.1.3
 + fix shell bug
 
+### v0.1.4
++ refactor js via using vuex
++ separate todo and todo status
+

@@ -14,3 +14,6 @@
 
 ### 发布版本
 sh commit.sh "version" "commit1[, commit2[, commt3[..."
+
+### release
+see [log]("./RELEASE.MD")

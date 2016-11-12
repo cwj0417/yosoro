@@ -3,15 +3,17 @@
         <countdown/>
         <countdown-status/>
         <todo/>
+        <todo-status/>
     </div>
 </template>
 <style>
 
 </style>
 <script>
-    import countdown from "./countdown";
-    import countdownStatus from "./countdown-status";
-    import todo from "./todo";
+    import countdown from "./components/countdown"
+    import countdownStatus from "./components/countdown-status"
+    import todo from "./components/todo"
+    import todoStatus from "./components/todo-status"
     export default {
         data() {
             return {
@@ -21,7 +23,8 @@
         components: {
             countdown,
             countdownStatus,
-            todo
+            todo,
+            todoStatus
         }
     }
 </script>

@@ -127,16 +127,3 @@ reciever
     .on("todo.set", (value) => {
         return storagecache.set("todoList", value);
     })
-
-// setInterval(() => {
-//     clock.alert(`now was ${Date.now()}`);
-// }, 2000)
-
-// remove all
-// storage.getAll()
-// .then((res) => {
-//     console.log(res)
-//     for (let ele in res) {
-//         storage.remove(ele);
-//     }
-// })

@@ -2,9 +2,9 @@
     <div>
         <table v-show="list.length > 0">
             <tr>
-                <th>内容</th>
-                <th>时间</th>
-                <th>操作</th>
+                <th>item</th>
+                <th>countdown</th>
+                <th>operation</th>
             </tr>
             <tr v-for="item of list">
                 <td>{{item.content}}</td>
@@ -16,8 +16,8 @@
         </table>
         <table v-show="history.length > 0">
             <tr>
-                <th>告警</th>
-                <th>时间</th>
+                <th>item</th>
+                <th>dispatched</th>
             </tr>
             <tr v-for="item of history">
                 <td>{{item.content}}</td>
@@ -35,37 +35,30 @@
 
 </style>
 <script>
-    import {Message} from "../libs/chrome";
+    import {Message} from "../../libs/chrome";
+    import {mapState, mapActions} from "vuex";
     let sender = Message.sender;
-    export default{
-        data() {
-            return {
-                list: [],
-                history: []
-            }
+    export default {
+        computed: {
+            ...mapState({
+                list: state => state.countdown.list,
+                history: state => state.countdown.history
+            })
         },
         methods: {
-            getCountDown: function () {
-                sender.send("countdown.get")
-                    .then((list) => {
-                        this.list = list;
-                    });
-            },
-            getBadge: function () {
-                sender.send("cache.getBadge")
-                    .then((list) => {
-                        this.history = list;
-                    });
-            },
-            clearhistory: function () {
-                this.history = [];
-                sender.send("cache.clearBadge");
-            }
+            ...mapActions({
+                getCountDown: `countdown/get`,
+                getBadge: `countdown/getBadge`,
+                clearhistory: `countdown/clear`
+            })
         },
         created() {
             this.getCountDown();
             this.getBadge();
-            setInterval(this.getCountDown, 1000);
+            setInterval(() => {
+                this.getCountDown();
+            }, 1000);
         }
     }
+
 </script>
