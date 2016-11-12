@@ -19,3 +19,6 @@
 ### v0.2.0
 + auto commit tag info to git
 
+### v0.2.0
++ auto commit tag info to git
+
