@@ -24,5 +24,7 @@ then
     echo "" >> RELEASE.MD;
     git add .
     git commit -m 'version'${version}''
+	git tag v'${version}'
     git push yosoro master:master
+	git push yosoro v'{version}'
 fi

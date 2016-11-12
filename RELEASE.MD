@@ -16,3 +16,6 @@
 + refactor js via using vuex
 + separate todo and todo status
 
+### v0.2.0
++ auto commit tag info to git
+
