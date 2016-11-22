@@ -27,4 +27,5 @@ then
 	git tag v${version}
     git push yosoro master:master
 	git push yosoro v${version}
+	npm publish
 fi
