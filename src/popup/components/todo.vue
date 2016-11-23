@@ -1,20 +1,17 @@
 <template>
     <div>
-        <input type="text" v-model="content" @keyup.enter="add" placeholder="todo">
+        <y-input title="todo item" type="text" placeholder="type your todo" v-model="content" @enter="add" class="input-normal"/>
     </div>
 </template>
-<style>
-
-</style>
 <script>
     export default{
-        data(){
+        data() {
             return {
                 content: ``
-            }
+            };
         },
         methods: {
-            add: function () {
+            add() {
                 if (this.content) {
                     this.$store.dispatch(`todo/add`, this.content);
                     this.content = ``;

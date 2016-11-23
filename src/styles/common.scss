@@ -1,0 +1,115 @@
+//theme config
+$千歌: #f08300;
+$梨子: #ff7575;
+$果南: #1bd5a8;
+$ダイヤ: #ff2a2a;
+$曜: #68d1ff;
+$善子: #c3c3c3;
+$花丸: #e2c800;
+$鞠莉: #b761ff;
+$ルビィ: #f273c4;
+
+$アクア: #067bcb;
+$_アクア: #00a1e9;
+
+//theme
+$CUR_THEME: $果南;
+
+$BG_EXTRA_LIGHT: lighten($CUR_THEME, 20%);
+$BG_LIGHT: lighten($CUR_THEME, 10%);
+$BG_DARK: $CUR_THEME;
+
+$TEXT: darken($CUR_THEME, 30%);
+$TEXT_DARK: darken($CUR_THEME, 60%);
+$FONT_SIZE: 10px;
+
+
+$TD_PADDING: 8px 4px;
+//layout
+*, :after, :before {
+  box-sizing: border-box;
+}
+body {
+  height: 600px;
+  width: 800px;
+  background: $BG_EXTRA_LIGHT;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  line-height: 1.5;
+  color: $TEXT_DARK;
+  font-size: 14px;
+  transition: background 1s cubic-bezier(.075,.82,.165,1);
+  overflow-x: hidden;
+}
+
+//button
+button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 4px 15px;
+  font-size: $FONT_SIZE;
+  border-radius: 6px;
+  user-select: none;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  position: relative;
+  color: #666;
+  background-color: #f7f7f7;
+}
+button:hover {
+  color: $TEXT;
+  border:1px solid $TEXT;
+}
+
+//table
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  border: 1px solid $BG_LIGHT;
+  border-right: 0;
+  border-bottom: 0;
+  font-size: $FONT_SIZE;
+  color: #666;
+  position: relative;
+}
+tr {
+  transition: all .3s ease;
+}
+th {
+  background: #f7f7f7;
+  font-weight: 700;
+  transition: background .3s ease;
+  text-align: left;
+  padding: $TD_PADDING;
+  word-break: break-all;
+  border-bottom: 1px solid $BG_LIGHT;
+  border-right: 1px solid $BG_LIGHT;
+}
+td {
+  border-right: 1px solid $BG_LIGHT;
+  padding: $TD_PADDING;
+  word-break: break-all;
+  border-bottom: 1px solid $BG_LIGHT;
+  position: relative;
+}
+tr:hover {
+  background: $BG_DARK;
+}
+.table-md {
+  width: 400px;
+}
+.table-lg {
+  width: 750px;
+}
+.table-sm {
+  width: 300px;
+}

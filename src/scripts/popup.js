@@ -4,6 +4,10 @@ import App from "../popup/app"
 
 import store from '../popup/store'
 
+import  "../styles/popup.scss"
+
+import "../components"
+
 new Vue({
     el: `#popup`,
     template: `<App/>`,

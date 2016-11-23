@@ -6,9 +6,6 @@
         <todo-status/>
     </div>
 </template>
-<style>
-
-</style>
 <script>
     import countdown from "./components/countdown"
     import countdownStatus from "./components/countdown-status"

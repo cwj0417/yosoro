@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table v-show="list.length > 0">
+        <table v-show="list.length > 0" class="table-lg">
             <tr>
                 <th>item</th>
                 <th>created</th>

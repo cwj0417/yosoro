@@ -1,20 +1,20 @@
-var path = require("path"),
+let path = require("path"),
     webpack = require("webpack"),
     srcPath = path.join(__dirname, "src");
 
 let entry = {
-    popup: ["babel-polyfill", path.join(srcPath, "scripts/popup.js")],
-    background: ["babel-polyfill", path.join(srcPath, "scripts/background.js")],
-    match: ["babel-polyfill", path.join(srcPath, "scripts/match.js")]
+    popup: ["babel-polyfill", path.join(srcPath, "scripts", "popup.js")],
+    background: ["babel-polyfill", path.join(srcPath, "scripts", "background.js")],
+    match: ["babel-polyfill", path.join(srcPath, "scripts", "match.js")],
 };
-var config = {
+let config = {
     entry: entry,
     output: {
         path: "extension/scripts",
         filename: "[name].js"
     },
     resolve: {
-        extensions: ['', '.js', '.vue'],
+        extensions: ["", ".js", ".vue"],
         root: [path.join(__dirname, "node_modules"), srcPath],
         alias: {
             "vue$": "vue/dist/vue.js"
@@ -33,7 +33,7 @@ var config = {
         }, {
             test: /\.vue$/,
             loader: "vue"
-        },{
+        }, {
             test: /html$/,
             exclude: /index.html/,
             loader: "file?name=/[name].html"
@@ -45,7 +45,7 @@ var config = {
             loader: "style!css"
         }, {
             test: /\.scss$/,
-            loader: "style!css!postcss!sass"
+            loader: "style!css!sass"
         }, {
             test: /\.js$/,
             exclude: /(node_modules)/,

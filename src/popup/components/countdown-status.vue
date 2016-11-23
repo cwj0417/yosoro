@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table v-show="list.length > 0">
+        <table v-show="list.length > 0" class="table-md">
             <tr>
                 <th>item</th>
                 <th>countdown</th>
@@ -14,7 +14,7 @@
                 </td>
             </tr>
         </table>
-        <table v-show="history.length > 0">
+        <table v-show="history.length > 0" class="table-sm">
             <tr>
                 <th>item</th>
                 <th>dispatched</th>
@@ -31,9 +31,6 @@
         </table>
     </div>
 </template>
-<style>
-
-</style>
 <script>
     import {Message} from "../../libs/chrome";
     import {mapState, mapActions} from "vuex";

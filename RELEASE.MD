@@ -22,3 +22,9 @@
 ### v0.3.0-0
 + add publish to npm
 
+### v0.4.0
++ add style with sass
++ saperate color theme
++ add input group component
++ modify table and button styles
+

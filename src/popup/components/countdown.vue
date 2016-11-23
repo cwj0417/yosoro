@@ -1,14 +1,9 @@
 <template>
     <div>
-        <input type="number" placeholder="minutes" v-model="minutes" @keyup.enter="add">
-        <input type="text" placeholder="content" v-model="content" @keyup.enter="add">
+        <y-input title="countdown" type="number" placeholder="input minutes" v-model="minutes" @enter="add" class="input-normal" />
+        <y-input title="content" type="text" placeholder="your reminder content" v-model="content" @enter="add" class="input-normal" />
     </div>
 </template>
-<style scoped>
-    body{
-        background-color:#ff0000;
-    }
-</style>
 <script>
     export default {
         data() {
