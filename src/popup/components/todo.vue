@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <y-input title="todo item" type="text" placeholder="type your todo" v-model="content" @enter="add" class="input-normal"/>
-    </div>
+    <module-wrap title="todo input">
+        <div>
+            <y-input title="todo item" type="text" placeholder="type your todo" v-model="content" @enter="add" class="input-normal"/>
+        </div>
+    </module-wrap>
 </template>
 <script>
     export default{

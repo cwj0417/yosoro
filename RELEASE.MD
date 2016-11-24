@@ -28,3 +28,8 @@
 + add input group component
 + modify table and button styles
 
+### v0.5.0
++ update styles
++ make system module-saperated
++ now we can manage module through options page by right click the popup icon
+

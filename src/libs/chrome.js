@@ -29,7 +29,7 @@ export let notifier = {
             title: title,
             message: content
         }, (cb) => {
-            console.log(cb);
+            //
         });
     }
 };

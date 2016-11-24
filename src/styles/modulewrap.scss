@@ -1,0 +1,20 @@
+.module-wrap {
+  margin: 10px;
+  padding: 10px;
+  background: $HOVER_BG;
+  transition: all .2s ease;
+  border-radius: 10px;
+  border: 1px solid $HOVER_BG;
+}
+.module-wrap:hover {
+  box-shadow: 0 2px 7px  $CUR_THEME;
+  background: lighten($HOVER_BG, 10%);
+}
+.module-title {
+  padding: 5px;
+  font-weight: bold;
+}
+.module-body {
+  padding: 10px;
+  border-top: 1px solid $TEXT_DARK;
+}

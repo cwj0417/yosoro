@@ -97,6 +97,12 @@ let countdown = new CountDown();
 let storagecache = new StorageCache();
 
 reciever
+    .on("modules.get", () => {
+        return storagecache.get("modules");
+    })
+    .on("modules.set", (list) => {
+        return storagecache.set("modules", list);
+    })
     .on("countdown.set", ({content, timeout}) => {
         countdown.push(+timeout, content);
         return true;

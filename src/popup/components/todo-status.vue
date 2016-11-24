@@ -1,19 +1,21 @@
 <template>
     <div>
-        <table v-show="list.length > 0" class="table-lg">
-            <tr>
-                <th>item</th>
-                <th>created</th>
-                <th>operation</th>
-            </tr>
-            <tr v-for="(item, index) of list">
-                <td>{{item.content}}</td>
-                <td>{{item.ts|date}}</td>
-                <td>
-                    <button @click="remove(index)">clear</button>
-                </td>
-            </tr>
-        </table>
+        <module-wrap title="todo list">
+            <table v-show="list.length > 0" class="table-lg">
+                <tr>
+                    <th>item</th>
+                    <th>created</th>
+                    <th>operation</th>
+                </tr>
+                <tr v-for="(item, index) of list">
+                    <td>{{item.content}}</td>
+                    <td>{{item.ts|date}}</td>
+                    <td>
+                        <button @click="remove(index)">clear</button>
+                    </td>
+                </tr>
+            </table>
+        </module-wrap>
     </div>
 </template>
 <script>

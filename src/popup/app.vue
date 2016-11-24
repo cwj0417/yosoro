@@ -1,9 +1,6 @@
 <template>
     <div>
-        <countdown/>
-        <countdown-status/>
-        <todo/>
-        <todo-status/>
+        <component v-for="module in modules" :is="module"></component>
     </div>
 </template>
 <script>
@@ -14,7 +11,13 @@
     export default {
         data() {
             return {
-                greet: `hello`
+                greet: `hello`,
+                test: `countdown`
+            }
+        },
+        computed: {
+            modules() {
+                return this.$store.state.modules;
             }
         },
         components: {
@@ -22,6 +25,9 @@
             countdownStatus,
             todo,
             todoStatus
+        },
+        created() {
+            this.$store.commit(`getModules`);
         }
     }
 </script>

@@ -4,6 +4,7 @@ let path = require("path"),
 
 let entry = {
     popup: ["babel-polyfill", path.join(srcPath, "scripts", "popup.js")],
+    options: ["babel-polyfill", path.join(srcPath, "scripts", "options.js")],
     background: ["babel-polyfill", path.join(srcPath, "scripts", "background.js")],
     match: ["babel-polyfill", path.join(srcPath, "scripts", "match.js")],
 };

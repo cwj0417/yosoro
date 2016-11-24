@@ -13,16 +13,18 @@ $アクア: #067bcb;
 $_アクア: #00a1e9;
 
 //theme
-$CUR_THEME: $果南;
+$CUR_THEME: #8cd7fa;
 
-$BG_EXTRA_LIGHT: lighten($CUR_THEME, 20%);
+$BG_EXTRA_LIGHT: lighten($CUR_THEME, 30%);
 $BG_LIGHT: lighten($CUR_THEME, 10%);
 $BG_DARK: $CUR_THEME;
 
+$TEXT_LIGHT: darken($CUR_THEME, 10%);
 $TEXT: darken($CUR_THEME, 30%);
 $TEXT_DARK: darken($CUR_THEME, 60%);
 $FONT_SIZE: 10px;
 
+$HOVER_BG: #efefef;
 
 $TD_PADDING: 8px 4px;
 //layout
@@ -31,7 +33,7 @@ $TD_PADDING: 8px 4px;
 }
 body {
   height: 600px;
-  width: 800px;
+  width: 740px;
   background: $BG_EXTRA_LIGHT;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   line-height: 1.5;
@@ -39,6 +41,7 @@ body {
   font-size: 14px;
   transition: background 1s cubic-bezier(.075,.82,.165,1);
   overflow-x: hidden;
+  padding: 10px;
 }
 
 //button
@@ -108,7 +111,7 @@ tr:hover {
   width: 400px;
 }
 .table-lg {
-  width: 750px;
+  width: 100%;
 }
 .table-sm {
   width: 300px;
