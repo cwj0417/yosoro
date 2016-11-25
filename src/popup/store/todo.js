@@ -1,4 +1,4 @@
-import {Message} from "../../libs/chrome";
+import {Message} from "../../libs";
 let sender = Message.sender;
 
 const state = {

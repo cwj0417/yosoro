@@ -30,9 +30,7 @@
     </div>
 </template>
 <script>
-    import {Message} from "../../libs/chrome";
     import {mapState, mapActions} from "vuex";
-    let sender = Message.sender;
     export default {
         computed: {
             ...mapState({

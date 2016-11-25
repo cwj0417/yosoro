@@ -43,6 +43,9 @@ body {
   overflow-x: hidden;
   padding: 10px;
 }
+input:focus {
+  outline: $CUR_THEME auto 3px;
+}
 
 //button
 button {

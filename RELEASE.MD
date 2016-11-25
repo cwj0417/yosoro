@@ -33,3 +33,6 @@
 + make system module-saperated
 + now we can manage module through options page by right click the popup icon
 
+### v0.5.1
++ add dictionary
+

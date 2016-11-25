@@ -8,6 +8,7 @@
     import countdownStatus from "./components/countdown-status"
     import todo from "./components/todo"
     import todoStatus from "./components/todo-status"
+    import dict from "./components/dict"
     export default {
         data() {
             return {
@@ -24,7 +25,8 @@
             countdown,
             countdownStatus,
             todo,
-            todoStatus
+            todoStatus,
+            dict
         },
         created() {
             this.$store.commit(`getModules`);

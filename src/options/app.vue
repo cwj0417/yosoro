@@ -7,12 +7,13 @@
     </div>
 </template>
 <script>
-import {Message} from "../libs/chrome";
+import {Message} from "../libs";
+import config from "../config";
 let sender = Message.sender;
 export default {
     data() {
         return {
-            modules: [`countdown`, `countdown-status`, `todo`, `todo-status`],
+            modules: config.modules,
             list: []
         }
     },

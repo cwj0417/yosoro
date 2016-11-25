@@ -48,6 +48,21 @@
   border-radius: 0 6px 6px 0;
 }
 .input-normal {
-  width: 240px;
+  width: 40%;
   display: inline-block;
+}
+.info-inline {
+  vertical-align: top;
+  width: 40%;
+  display: inline-block;
+  position: relative;
+  padding: 4px 7px;
+  height: 28px;
+  cursor: text;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666;
+  border-radius: 6px;
+  transition: border .2s cubic-bezier(.645,.045,.355,1),background .2s cubic-bezier(.645,.045,.355,1),box-shadow .2s cubic-bezier(.645,.045,.355,1);
+
 }

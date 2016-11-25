@@ -6,7 +6,7 @@ import countdown from "./countdown"
 
 import todo from "./todo"
 
-import {Message} from "../../libs/chrome";
+import {Message} from "../../libs";
 let sender = Message.sender;
 
 Vue.use(Vuex);

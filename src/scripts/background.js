@@ -1,4 +1,4 @@
-import {Message, badge, storage, notifier} from '../libs/chrome';
+import {Message, badge, storage, notifier} from '../libs';
 
 
 let sender = Message.sender;
