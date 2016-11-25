@@ -1,5 +1,5 @@
 import {Message, badge, storage, notifier} from '../libs';
-
+import "./init";
 
 let sender = Message.sender;
 let reciever = Message.reciever;
@@ -15,11 +15,14 @@ let cache = {
 };
 
 let clock = {
-    alert: (content) => {
-        notifier.pop(content);
+    alert: (message) => {
+        notifier.basic({
+            title: `reminder`,
+            message
+        });
         cache.alertContent.push({
             ts: Date.now(),
-            content: content
+            content: message
         });
         badge.setText(++cache.alertNum, "red");
     }
@@ -132,4 +135,4 @@ reciever
     })
     .on("todo.set", (value) => {
         return storagecache.set("todoList", value);
-    })
+    });

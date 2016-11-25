@@ -36,3 +36,8 @@
 ### v0.5.1
 + add dictionary
 
+### v0.5.2
++ dictionary now can search via right click menu
++ add menu
++ update notification interface
+
