@@ -17,7 +17,7 @@
             },
             enter() {
                 this.$emit(`enter`, arguments);
-            }
+             }
         }
     }
 

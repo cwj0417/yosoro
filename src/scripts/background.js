@@ -101,7 +101,7 @@ let storagecache = new StorageCache();
 
 reciever
     .on("modules.get", () => {
-        return storagecache.get("modules");
+        return storagecache.get("modules") || [];
     })
     .on("modules.set", (list) => {
         return storagecache.set("modules", list);

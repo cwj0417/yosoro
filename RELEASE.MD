@@ -41,3 +41,7 @@
 + add menu
 + update notification interface
 
+### v0.5.3
++ update readme
++ fix module load failure after first loading extension
+

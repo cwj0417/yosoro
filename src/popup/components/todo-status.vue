@@ -1,7 +1,7 @@
 <template>
     <div>
-        <module-wrap title="todo list">
-            <table v-show="list.length > 0" class="table-lg">
+        <module-wrap title="todo list" v-show="list.length > 0">
+            <table class="table-lg">
                 <tr>
                     <th>item</th>
                     <th>created</th>
