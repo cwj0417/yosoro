@@ -6,6 +6,10 @@ import countdown from "./countdown"
 
 import todo from "./todo"
 
+import extract from "./extract"
+
+import tabs from "./tabs"
+
 import {Message} from "../../libs";
 let sender = Message.sender;
 
@@ -28,6 +32,8 @@ export default new Vuex.Store({
     mutations: mutations,
     modules: {
         countdown,
-        todo
+        todo,
+        extract,
+        tabs
     }
 })

@@ -1,3 +1,3 @@
 export default {
-    modules: [`dict`, `countdown`, `countdown-status`, `todo`, `todo-status`]
+    modules: [`dict`, `countdown`, `countdown-status`, `todo`, `todo-status`, `extract`, `tabs`]
 }

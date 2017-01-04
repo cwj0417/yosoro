@@ -119,3 +119,14 @@ tr:hover {
 .table-sm {
   width: 300px;
 }
+ul {
+  list-style: none;
+}
+a, a:visited {
+  text-decoration: none;
+  color: $TEXT_DARK;
+}
+li {
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  padding: 3px;
+}

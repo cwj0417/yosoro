@@ -9,6 +9,10 @@
     import todo from "./components/todo"
     import todoStatus from "./components/todo-status"
     import dict from "./components/dict"
+    import extract from "./components/extract"
+    import tabs from "./components/tabs"
+
+
     export default {
         data() {
             return {
@@ -26,7 +30,9 @@
             countdownStatus,
             todo,
             todoStatus,
-            dict
+            dict,
+            extract,
+            tabs
         },
         created() {
             this.$store.commit(`getModules`);

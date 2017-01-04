@@ -1,4 +1,3 @@
-
 ### introduction
 this chrome extension provides multiple, extendable modules of daily tools.
 
@@ -28,7 +27,33 @@ if you are senior users and want extend this project:
 **未来をむかで　ヨーソロー　敬礼!**
 
 ### publish version
-sh commit.sh "version" "commit1[, commit2[, commt3[..."
+sh commit.sh "version" "commit1[, commit2[, commit3[..."
 
 ### release
 see [log](RELEASE.MD)
+
+### modules
+
+#### countdown/countdown-status
+
+input your count time(count by minutes), warn content and press enter to countdown
+when very time comes an desktop notification will popups.
+
+#### dict
+
+input your word and results will be shown.
+you can also select words/sentences and translate by right click menu.
+
+#### extract
+
+select your favored contents in webpages and right click found 'extract' to collect the contents.
+clear them in popup page after you have read it.
+
+#### todo/todo-status
+
+input your todo and press enter to record your inspiration.
+and clear them by click button `clear`.
+
+#### tabs
+
+if you opened several tabs and want put them aside then click retract to collect tab and watch them later.

@@ -21,7 +21,7 @@ class reciever {
     }
 }
 
-export let notifier = {
+export const notifier = {
     basic({
         iconUrl = `../imgs/ruby_q.png`,
         title = `NOTICE`,
@@ -70,8 +70,9 @@ export let notifier = {
             progress: 30
         })
     }
-};
-export let badge = {
+}
+
+export const badge = {
     setColor(color) {
         chrome.browserAction.setBadgeBackgroundColor({color: color});
     },
@@ -83,9 +84,9 @@ export let badge = {
     clear() {
         chrome.browserAction.setBadgeText({text: ""});
     }
-};
+}
 
-export let storage = {
+export const storage = {
     set(key, value) {
         let obj = {};
         obj[key] = value;
@@ -96,9 +97,13 @@ export let storage = {
         });
     },
     get(key) {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             chrome.storage.sync.get(key, (callback) => {
-                resolve(callback[key]);
+                if(callback[key]) {
+                    resolve(callback[key]);
+                }else {
+                    reject(`value of ${key} was not found`);
+                }
             });
         });
     },
@@ -143,9 +148,9 @@ export let storage = {
     }
 };
 
-export let menu = chrome.contextMenus;
+export const menu = chrome.contextMenus;
 
-export let Message = {
+export const Message = {
     get sender() {
         return new sender();
     },

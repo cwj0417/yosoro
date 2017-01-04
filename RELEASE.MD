@@ -45,3 +45,9 @@
 + update readme
 + fix module load failure after first loading extension
 
+### v0.6.0
++ add tabs module
++ add extract module
++ add tab-set component
++ leave bugs of extract's clearall and update lifecycle
+
