@@ -11,7 +11,7 @@
     import dict from "./components/dict"
     import extract from "./components/extract"
     import tabs from "./components/tabs"
-
+    import environment from "./components/environment"
 
     export default {
         data() {
@@ -32,7 +32,8 @@
             todoStatus,
             dict,
             extract,
-            tabs
+            tabs,
+            environment
         },
         created() {
             this.$store.commit(`getModules`);

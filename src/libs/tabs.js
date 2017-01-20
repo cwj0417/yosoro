@@ -1,4 +1,4 @@
-import {storage} from "./chrome";
+import {storage} from "./storage";
 const storageKey = `tabs`;
 
 export const tabs = {

@@ -1,4 +1,5 @@
-import {menu, dict, notifier, extract, tabs} from '../libs';
+import {menu, notifier, extract, tabs} from '../libs/bg';
+import {dict, appInfo} from "../libs/cm";
 
 
 let translate = function ({selectionText}) {
@@ -41,6 +42,13 @@ let collect = function() {
         })
 };
 
+let bookmarkManage = function() {
+    let id = appInfo.id;
+    tabs.create({
+        url: `chrome-extension://${id}/bmm.html`
+    })
+}
+
 menu.removeAll();
 
 menu.create({
@@ -58,6 +66,12 @@ menu.create({
 menu.create({
    type: "normal",
     title: "收集tab",
-    contexts: ["all"],
+    contexts: ["page"],
     onclick: collect
 });
+menu.create({
+    type: "normal",
+    title: "管理书签",
+    contexts: ["browser_action"],
+    onclick: bookmarkManage
+})

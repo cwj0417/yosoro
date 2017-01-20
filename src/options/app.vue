@@ -7,9 +7,8 @@
     </div>
 </template>
 <script>
-import {Message} from "../libs";
+import {sender} from "../libs/cm";
 import config from "../config";
-let sender = Message.sender;
 export default {
     data() {
         return {

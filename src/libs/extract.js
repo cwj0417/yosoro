@@ -1,4 +1,4 @@
-import {storage} from "./chrome";
+import {storage} from "./bg";
 const storageKey = `extract`;
 
 export const extract = {

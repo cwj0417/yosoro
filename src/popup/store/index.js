@@ -10,8 +10,9 @@ import extract from "./extract"
 
 import tabs from "./tabs"
 
-import {Message} from "../../libs";
-let sender = Message.sender;
+import environment from "./environment"
+
+import {sender} from "../../libs/cm";
 
 Vue.use(Vuex);
 
@@ -28,12 +29,13 @@ const mutations = {
 };
 
 export default new Vuex.Store({
-    state: state,
-    mutations: mutations,
+    state,
+    mutations,
     modules: {
         countdown,
         todo,
         extract,
-        tabs
+        tabs,
+        environment
     }
 })

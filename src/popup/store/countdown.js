@@ -1,5 +1,4 @@
-import {Message} from "../../libs";
-let sender = Message.sender;
+import {sender} from "../../libs/cm";
 const state = {
     list: [],
     history: []

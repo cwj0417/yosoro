@@ -1,4 +1,4 @@
-import {tabs} from "../../libs";
+import {tabs} from "../../libs/bg";
 import Vue from "vue";
 
 const state = {

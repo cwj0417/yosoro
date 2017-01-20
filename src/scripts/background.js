@@ -1,8 +1,7 @@
-import {Message, badge, storage, notifier} from '../libs';
+import {badge, storage, notifier, csSender, environment} from "../libs/bg";
+import {reciever} from "../libs/cm";
 import "./init";
 
-let sender = Message.sender;
-let reciever = Message.reciever;
 
 
 const config = {
@@ -135,4 +134,12 @@ reciever
     })
     .on("todo.set", (value) => {
         return storagecache.set("todoList", value);
+    })
+    .on("environment.getState", () => {
+        environment.getState()
+            .then(state => {
+                csSender.send(`environment.snowSwitch`, state.snow.isOn);
+                csSender.send(`environment.snowParam`, state.snow);
+                csSender.send(`environment.filter`, state.filter);
+            })
     });

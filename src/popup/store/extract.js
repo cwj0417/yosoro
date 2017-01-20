@@ -1,4 +1,4 @@
-import {extract} from "../../libs";
+import {extract} from "../../libs/bg";
 import _ from "lodash";
 import Vue from "vue";
 

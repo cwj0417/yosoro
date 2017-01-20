@@ -1,0 +1,1 @@
+export const menu = chrome.contextMenus;

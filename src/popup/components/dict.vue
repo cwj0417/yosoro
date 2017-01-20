@@ -15,7 +15,7 @@
 </template>
 <script>
     import _ from "lodash"
-    import {dict} from "../../libs"
+    import {dict} from "../../libs/cm"
     export default {
         data() {
             return {

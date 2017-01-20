@@ -18,14 +18,20 @@
         methods: {
             active(title) {
                 tabBus.$emit(`tabset-active`, title);
-            }
+            },
+            getTabs() {
+                let titles = [];
+                for(let [, each] of Object.entries(this.$children)) {
+                    titles.push(each.title);
+                }
+                this.titles = titles;
+                }
+        },
+        mounted() {
+            this.getTabs();
         },
         updated() {
-            let titles = [];
-            for(let [, each] of Object.entries(this.$children)) {
-                titles.push(each.title);
-            }
-            this.titles = titles;
+            this.getTabs();
         }
     }
 </script>
