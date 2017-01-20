@@ -57,3 +57,7 @@ and clear them by click button `clear`.
 #### tabs
 
 if you opened several tabs and want put them aside then click retract to collect tab and watch them later.
+
+#### environment
+
+change page theme.
