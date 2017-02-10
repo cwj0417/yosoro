@@ -12,6 +12,7 @@
     import extract from "./components/extract"
     import tabs from "./components/tabs"
     import environment from "./components/environment"
+    import memo from "./components/memo"
 
     export default {
         data() {
@@ -33,7 +34,8 @@
             dict,
             extract,
             tabs,
-            environment
+            environment,
+            memo
         },
         created() {
             this.$store.commit(`getModules`);

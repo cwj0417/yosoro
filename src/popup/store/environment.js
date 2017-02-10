@@ -47,7 +47,6 @@ const actions = {
         environment.getState()
             .then((state) => {
                 commit(`environment/setState`, state);
-                console.log(state)
             }, (err) => {
                 console.log(err);
             })

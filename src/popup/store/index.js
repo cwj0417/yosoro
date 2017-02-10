@@ -12,6 +12,8 @@ import tabs from "./tabs"
 
 import environment from "./environment"
 
+import memo from "./memo"
+
 import {sender} from "../../libs/cm";
 
 Vue.use(Vuex);
@@ -36,6 +38,7 @@ export default new Vuex.Store({
         todo,
         extract,
         tabs,
-        environment
+        environment,
+        memo
     }
 })

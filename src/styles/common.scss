@@ -133,3 +133,12 @@ li {
 input[type=range] {
   cursor: pointer;
 }
+textarea {
+  width: 100%;
+  border: 0;
+  resize: none;
+  -webkit-box-shadow:  0 0 1px 1px $CUR_THEME;
+  -moz-box-shadow:   0 0 1px 1px $CUR_THEME;
+  box-shadow:   0 0 1px 1px $CUR_THEME;
+  height: auto;
+}

@@ -61,3 +61,6 @@ if you opened several tabs and want put them aside then click retract to collect
 #### environment
 
 change page theme.
+
+#### memo
+simple multi-tab memo.

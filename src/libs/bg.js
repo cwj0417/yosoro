@@ -7,3 +7,4 @@ export * from "./badge";
 export * from "./menu";
 export * from "./csSender";
 export * from "./environment";
+export * from "./memo";
