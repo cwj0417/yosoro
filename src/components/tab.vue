@@ -3,7 +3,7 @@
         <slot></slot>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import {tabBus} from "./bus"
     export default {
         data: () => ({

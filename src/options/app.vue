@@ -4,35 +4,63 @@
             <span>{{module.name}}</span>
             <input type="checkbox" v-model="module.isShown" @change="change"/>
         </div>
+        <div>
+            <button @click="axport">export</button>
+            <button @click="ymport">import</button>
+            <textarea v-model="datas" style="width:100px;height:100px;resize:none;"
+                      @focus="$event.target.select()"></textarea>
+        </div>
     </div>
 </template>
-<script>
-import {sender} from "../libs/cm";
-import config from "../config";
-export default {
-    data() {
-        return {
-            modules: config.modules,
-            list: []
-        }
-    },
-    methods: {
-        getList() {
-            sender.send(`modules.get`)
-            .then((modules) => {
-                this.list = this.modules.map(name => ({
-                    name: name,
-                    isShown: modules.indexOf(name) >= 0
-                }));
-            });
+<script type="text/ecmascript-6">
+    import {sender} from "../libs/cm";
+    import config from "../config";
+    import {storage} from "../libs/bg";
+    export default {
+        data() {
+            return {
+                modules: config.modules,
+                list: [],
+                datas: ""
+            }
         },
-        change() {
-            let modules = this.list.filter(item => item.isShown).map(item => item.name);
-            sender.send(`modules.set`, modules);
+        methods: {
+            getList() {
+                sender.send(`modules.get`)
+                        .then((modules) => {
+                            console.log(modules)
+                            this.list = this.modules.map(name => ({
+                                name: name,
+                                isShown: modules.indexOf(name) >= 0
+                            }));
+                        });
+            },
+            change() {
+                let modules = this.list.filter(item => item.isShown).map(item => item.name);
+                sender.send(`modules.set`, modules);
+            },
+            axport() {
+                storage.getAll()
+                        .then(datas => {
+                            this.datas = datas;
+                        })
+            },
+            ymport() {
+                try {
+                    this.datas = JSON.parse(this.datas);
+                }
+                catch (e) {
+                }
+                if (typeof this.datas == "object") {
+                    storage.setAll(this.datas)
+                            .then(res => {
+                                console.log(res);
+                            })
+                }
+            }
+        },
+        created() {
+            this.getList();
         }
-    },
-    created() {
-        this.getList();
     }
-}
 </script>

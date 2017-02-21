@@ -8,7 +8,7 @@
         </span>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     export default {
         props: ['value', 'title', 'type', 'placeholder', 'disabled', 'min', 'max'],
         methods: {

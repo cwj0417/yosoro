@@ -16,6 +16,21 @@ this chrome extension provides multiple, extendable modules of daily tools.
 +   right click extension icon and click `options`
 +   now you can see some modules and check your favor modules
 
+### extension data
+
+enter options page to manage your extension data
+
+#### export
+
+1.  click `export` button
+1.  copy data in textarea and save by ur own
+
+#### import
+
+1.  paste data in textarea
+1.  click `import` button
+1.  reload the extension
+
 ### extend modules
 
 if you are senior users and want extend this project:

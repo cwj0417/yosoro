@@ -33,6 +33,8 @@ const actions = {
         extract.get()
             .then(res => {
                 commit(`extract/set`, res);
+            }, err => {
+                console.log(err);
             })
     },
     [`extract/clear`]({commit}, {each}) {

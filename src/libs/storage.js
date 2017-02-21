@@ -1,4 +1,11 @@
 export const storage = {
+    setAll(obj) {
+      return new Promise((resolve) => {
+          chrome.storage.sync.set(obj, (callback) => {
+              resolve(`ok${callback}`);
+          })
+      })
+    },
     set(key, value) {
         let obj = {};
         obj[key] = value;
@@ -11,9 +18,9 @@ export const storage = {
     get(key) {
         return new Promise((resolve, reject) => {
             chrome.storage.sync.get(key, (callback) => {
-                if(callback[key]) {
+                if (callback[key]) {
                     resolve(callback[key]);
-                }else {
+                } else {
                     reject(`value of ${key} was not found`);
                 }
             });

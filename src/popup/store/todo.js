@@ -18,6 +18,8 @@ const actions = {
         sender.send("todo.get")
             .then((list) => {
                 commit(`todo/setList`, list);
+            }, err => {
+                console.log(err);
             })
     },
     [`todo/remove`]({state, commit}, index) {

@@ -3,7 +3,7 @@
         <component v-for="module in modules" :is="module"></component>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import countdown from "./components/countdown"
     import countdownStatus from "./components/countdown-status"
     import todo from "./components/todo"

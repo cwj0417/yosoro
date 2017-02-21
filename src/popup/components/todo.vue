@@ -1,11 +1,12 @@
 <template>
     <module-wrap title="todo input">
         <div>
-            <y-input title="todo item" type="text" placeholder="type your todo" v-model="content" @enter="add" class="input-normal"/>
+            <y-input title="todo item" type="text" placeholder="type your todo" v-model="content" @enter="add"
+                     class="input-normal"/>
         </div>
     </module-wrap>
 </template>
-<script>
+<script type="text/ecmascript-6">
     export default{
         data() {
             return {

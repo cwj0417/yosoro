@@ -16,7 +16,7 @@
         </module-wrap>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import {mapState, mapActions, mapGetters} from "vuex";
     export default {
         methods: {

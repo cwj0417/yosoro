@@ -12,13 +12,13 @@
         </module-wrap>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex"
     import _ from "lodash"
     export default {
         computed: {
             ...mapState({
-               memos: `memo`
+                memos: `memo`
             })
         },
         methods: {
@@ -32,7 +32,7 @@
         },
         watch: {
             memos: {
-                handler: _.debounce(function(value) {
+                handler: _.debounce(function (value) {
                     this.$store.dispatch(`memo/modify`, value);
                 }, 350),
                 deep: true

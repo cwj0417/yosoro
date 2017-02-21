@@ -13,7 +13,7 @@
         </module-wrap>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import _ from "lodash"
     import {dict} from "../../libs/cm"
     export default {
@@ -25,18 +25,18 @@
             }
         },
         methods: {
-            search: _.debounce(function(word) {
+            search: _.debounce(function (word) {
                 this.info = `waiting for your search`;
                 this.results = [];
-                if(word.length > 0) {
+                if (word.length > 0) {
                     this.info = `searching...`;
                     dict.search(word)
-                    .then((results) => {
-                        this.results = results;
-                        this.info = `done`;
-                    }, (err) => {
-                        this.info = err;
-                    })
+                            .then((results) => {
+                                this.results = results;
+                                this.info = `done`;
+                            }, (err) => {
+                                this.info = err;
+                            })
                 }
             }, 350)
         },

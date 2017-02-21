@@ -22,7 +22,7 @@
         </module-wrap>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex";
     import _ from "lodash";
 
@@ -50,7 +50,7 @@
                 this.$store.dispatch(`tabs/restoreBlank`, {id, resTabs});
                 this.$store.dispatch(`tabs/clear`, id);
             },
-            modify: _.debounce(function(id, content) {
+            modify: _.debounce(function (id, content) {
                 this.$store.dispatch(`tabs/modifyName`, {id, content});
             }, 350)
         },
