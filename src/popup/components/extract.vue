@@ -1,8 +1,9 @@
 <template>
-    <div>
-        <module-wrap title="extract">
-            <tab-set>
-                <tab :title="key" v-for="(value, key) in extracts">
+    <module-wrap title="extract">
+        <Collapse>
+            <Panel v-for="(value, key) in extracts">
+                {{key}}
+                <div slot="content">
                     <ul>
                         <li v-for="each in value">
                             <a :href="each.url" target="_blank">
@@ -11,10 +12,10 @@
                             <button @click="clear({each})">clear</button>
                         </li>
                     </ul>
-                </tab>
-            </tab-set>
-        </module-wrap>
-    </div>
+                </div>
+            </Panel>
+        </Collapse>
+    </module-wrap>
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapActions, mapGetters} from "vuex";

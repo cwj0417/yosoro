@@ -42,7 +42,7 @@
             axport() {
                 storage.getAll()
                         .then(datas => {
-                            this.datas = datas;
+                            this.datas = JSON.stringify(datas);
                         })
             },
             ymport() {

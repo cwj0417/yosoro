@@ -1,16 +1,24 @@
 <template>
-    <div>
-        <module-wrap title="memo">
-            <tab-set>
-                <tab :title="memo.title" v-for="(memo, index) in memos">
-                    <button @click="del(index)">delete</button>
-                    <y-input v-model="memo.title" title="title" style="width:50%"/>
-                    <textarea class="ta" v-model="memo.content" style="height:300px"></textarea>
-                </tab>
-            </tab-set>
-            <button @click="add">+</button>
-        </module-wrap>
-    </div>
+    <module-wrap title="memo">
+        <Collapse accordion>
+            <Panel v-for="(memo, index) in memos">
+                {{memo.title}}
+                <div slot="content">
+                    <Tabs>
+                        <Tab-pane label="content" icon="eye">
+                            <md v-model="memo.content"></md>
+                        </Tab-pane>
+                        <Tab-pane label="edit" icon="edit">
+                            <button @click="del(index)">delete</button>
+                            <y-input v-model="memo.title" title="title" style="width:50%"/>
+                            <textarea class="ta" v-model="memo.content" style="height:300px"></textarea>
+                        </Tab-pane>
+                    </Tabs>
+                </div>
+            </Panel>
+        </Collapse>
+        <button @click="add">+</button>
+    </module-wrap>
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex"
@@ -39,6 +47,4 @@
             }
         }
     }
-
-
 </script>

@@ -2,7 +2,7 @@ import {menu, notifier, extract, tabs} from '../libs/bg';
 import {dict, appInfo} from "../libs/cm";
 
 
-let translate = function ({selectionText}) {
+const translate = function ({selectionText}) {
     dict.search(selectionText)
         .then((results) => {
             notifier.basic({
@@ -13,12 +13,12 @@ let translate = function ({selectionText}) {
         });
 };
 
-let putExtract = function({selectionText, pageUrl}) {
+const putExtract = function ({selectionText, pageUrl}) {
     fetch(pageUrl)
         .then(res => res.blob())
         .then(blob => {
             let fr = new FileReader();
-            fr.onload = function() {
+            fr.onload = function () {
                 let reg = /<title>(.*)<\/title>/;
                 let title = fr.result.match(reg)[1];
                 extract.put(pageUrl, title, selectionText);
@@ -27,11 +27,15 @@ let putExtract = function({selectionText, pageUrl}) {
         });
 };
 
-let collect = function() {
+const collect = function () {
     tabs.stGet()
         .then(state => {
             tabs.getCurWindow()
                 .then(cur => {
+                    cur = cur.map(each => {
+                        let {favIconUrl, url, title} = each;
+                        return {favIconUrl, url, title}
+                    });
                     let hash = Date.now();
                     state[hash] = {
                         name: `新建收纳${new Date().toLocaleString()}`,
@@ -42,10 +46,24 @@ let collect = function() {
         })
 };
 
-let bookmarkManage = function() {
+const bookmarkManage = function () {
     let id = appInfo.id;
     tabs.create({
         url: `chrome-extension://${id}/bmm.html`
+    })
+}
+
+const displayOnNewTab = function () {
+    let id = appInfo.id;
+    tabs.create({
+        url: `chrome-extension://${id}/popup.html`
+    })
+}
+
+const showOptions = function () {
+    let id = appInfo.id;
+    tabs.create({
+        url: `chrome-extension://${id}/opts.html`
     })
 }
 
@@ -58,13 +76,13 @@ menu.create({
     onclick: translate
 });
 menu.create({
-   type: "normal",
+    type: "normal",
     title: "摘录",
     contexts: ["selection"],
     onclick: putExtract
 });
 menu.create({
-   type: "normal",
+    type: "normal",
     title: "收集tab",
     contexts: ["page"],
     onclick: collect
@@ -74,4 +92,16 @@ menu.create({
     title: "管理书签",
     contexts: ["browser_action"],
     onclick: bookmarkManage
+});
+menu.create({
+    type: "normal",
+    title: "显示yosoro",
+    contexts: ["browser_action"],
+    onclick: displayOnNewTab
+});
+menu.create({
+    type: "normal",
+    title: "显示选项",
+    contexts: ["browser_action"],
+    onclick: showOptions
 })

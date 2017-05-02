@@ -1,64 +1,68 @@
-let path = require("path"),
+const path = require("path"),
     webpack = require("webpack"),
     srcPath = path.join(__dirname, "src");
 
-let entry = {
+const entry = {
     popup: ["babel-polyfill", path.join(srcPath, "scripts", "popup.js")],
     options: ["babel-polyfill", path.join(srcPath, "scripts", "options.js")],
     bookmarkmanager: ["babel-polyfill", path.join(srcPath, "scripts", "bookmarkmanager.js")],
     background: ["babel-polyfill", path.join(srcPath, "scripts", "background.js")],
     match: ["babel-polyfill", path.join(srcPath, "scripts", "match.js")],
 };
-let config = {
-    entry: entry,
-    output: {
-        path: "extension/scripts",
-        filename: "[name].js"
+const output = {
+    path: path.resolve("extension", "scripts"),
+    filename: "[name].js"
+};
+const resolve = {
+    extensions: [".js", ".vue"],
+    alias: {
+        "vue$": "vue/dist/vue.esm.js"
     },
-    resolve: {
-        extensions: ["", ".js", ".vue"],
-        root: [path.join(__dirname, "node_modules"), srcPath],
-        alias: {
-            "vue$": "vue/dist/vue.js"
-        }
-    },
-    module: {
-        loaders: [{
-            test: /\.(eot|woff|woff2|ttf|svg)$/,
-            loader: "file?name=fonts/[name].[ext]"
-        }, {
-            test: /(shCore|shBrushJava)/,
-            loader: "file?name=vendor/[name].[ext]"
-        }, {
-            test: /jquery/,
-            loader: "expose?jQuery"
-        }, {
-            test: /\.vue$/,
-            loader: "vue"
-        }, {
-            test: /html$/,
-            exclude: /index.html/,
-            loader: "file?name=/[name].html"
-        }, {
-            test: /\.(png|jpg)$/,
-            loader: "file?name=img/[name].[ext]"
-        }, {
-            test: /\.css$/,
-            loader: "style!css"
-        }, {
-            test: /\.scss$/,
-            loader: "style!css!sass"
-        }, {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            loader: "babel?presets[]=stage-2!babel?presets[]=es2015!eslint-loader"
-        }, {
-            test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
-            loader: "file?name=fonts/[name].[ext]"
+    modules: [path.join(__dirname, "node_modules"), srcPath]
+};
+const rules = [
+    {
+        test: /\.(eot|woff|woff2|ttf|svg)$/,
+        use: [{
+            loader: "file",
+            options: {
+                name: "../fonts/[name].[ext]"
+            }
         }]
+    }, {
+        test: /\.vue$/,
+        use: ["vue"]
+    }, {
+        test: /html$/,
+        exclude: /index.html/,
+        use: ["file?name=/[name].html"]
+    }, {
+        test: /\.(png|jpg)$/,
+        use: ["file?name=img/[name].[ext]"]
+    }, {
+        test: /\.css$/,
+        use: ["style", "css"]
+    }, {
+        test: /\.scss$/,
+        use: ["style", "css", "sass"]
+    }, {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: ["babel", "eslint"]
+    }, {
+        test: [/fontawesome-webfont\.svg/, /fontawesome-webfont\.eot/, /fontawesome-webfont\.ttf/, /fontawesome-webfont\.woff/, /fontawesome-webfont\.woff2/],
+        use: ["file?name=fonts/[name].[ext]"]
+    }
+];
+let config = {
+    entry,
+    output,
+    resolve,
+    module: {
+        rules
     },
-    eslint: {
-        configFile: "./.eslintrc"
+    resolveLoader: {
+        moduleExtensions: ["-loader"]
     }
 };
 

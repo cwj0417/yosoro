@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <module-wrap title="dictionary">
-            <div>
-                <y-input title="word" placeholder="input here" type="text" v-model="word" class="input-normal"/>
-                <div class="info-inline">{{info}}</div>
-            </div>
-            <div>
-                <ol>
-                    <li v-for="item in results">{{item}}</li>
-                </ol>
-            </div>
-        </module-wrap>
-    </div>
+    <module-wrap title="dictionary">
+        <div>
+            <y-input title="word" placeholder="input here" type="text" v-model="word" class="input-normal"/>
+            <div class="info-inline">{{info}}</div>
+        </div>
+        <div>
+            <ol>
+                <li v-for="item in results">{{item}}</li>
+            </ol>
+        </div>
+    </module-wrap>
 </template>
 <script type="text/ecmascript-6">
     import _ from "lodash"

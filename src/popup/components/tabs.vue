@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <module-wrap title="tabs">
-            <button @click="collect">collect</button>
-            <tab-set>
-                <tab :title="value.name" v-for="(value, key) in tabs">
+    <module-wrap title="tabs">
+        <button @click="collect">collect</button>
+        <Collapse accordion>
+            <Panel v-for="(value, key) in tabs">
+                {{value.name}}
+                <div slot="content">
                     <input v-model="value.name" @keyup="modify(key, value.name)"/>
                     <button @click="restoreStay({id: key,resTabs: value.tabs})">restore without clear</button>
                     <button @click="restoreBlank({id: key,resTabs: value.tabs})">restore in new window</button>
@@ -17,10 +18,10 @@
                             </a>
                         </li>
                     </ul>
-                </tab>
-            </tab-set>
-        </module-wrap>
-    </div>
+                </div>
+            </Panel>
+        </Collapse>
+    </module-wrap>
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex";

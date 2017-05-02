@@ -64,3 +64,10 @@
 ### v0.8.0
 + import/export data was avaiable
 
+### v0.9.0
++ migrate webpack to 2
++ add popup page and options page to menu
++ fix bugs
++ import iView as ui framework
++ optimize serveral modules
+

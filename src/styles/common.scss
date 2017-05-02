@@ -32,6 +32,7 @@ $TD_PADDING: 8px 4px;
   box-sizing: border-box;
 }
 body {
+  box-sizing: initial;
   height: 600px;
   width: 740px;
   background: $BG_EXTRA_LIGHT;

@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <module-wrap title="reminder-countdown">
-            <y-input title="countdown" type="number" placeholder="input minutes" v-model="minutes" @enter="add"
-                     class="input-normal"/>
-            <y-input title="content" type="text" placeholder="your reminder content" v-model="content" @enter="add"
-                     class="input-normal"/>
-        </module-wrap>
-    </div>
+    <module-wrap title="reminder-countdown">
+        <y-input title="countdown" type="number" placeholder="input minutes" v-model="minutes" @enter="add"
+                 class="input-normal"/>
+        <y-input title="content" type="text" placeholder="your reminder content" v-model="content" @enter="add"
+                 class="input-normal"/>
+    </module-wrap>
 </template>
 <script type="text/ecmascript-6">
     export default {
