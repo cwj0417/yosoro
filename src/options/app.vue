@@ -7,7 +7,7 @@
         <div>
             <button @click="axport">export</button>
             <button @click="ymport">import</button>
-            <textarea v-model="datas" style="width:100px;height:100px;resize:none;"
+            <textarea v-model="data" style="width:100px;height:100px;resize:none;"
                       @focus="$event.target.select()"></textarea>
         </div>
     </div>
@@ -21,7 +21,7 @@
             return {
                 modules: config.modules,
                 list: [],
-                datas: ""
+                data: ""
             }
         },
         methods: {
@@ -41,22 +41,23 @@
             },
             axport() {
                 storage.getAll()
-                        .then(datas => {
-                            this.datas = JSON.stringify(datas);
+                        .then(data => {
+                            this.data = JSON.stringify(data);
                         })
             },
             ymport() {
                 try {
-                    this.datas = JSON.parse(this.datas);
+                    this.data = JSON.parse(this.data);
                 }
                 catch (e) {
                 }
-                if (typeof this.datas == "object") {
-                    storage.setAll(this.datas)
+                if (typeof this.data == "object") {
+                    storage.setAll(this.data)
                             .then(res => {
                                 console.log(res);
                             })
                 }
+                this.data = JSON.stringify(this.data)
             }
         },
         created() {

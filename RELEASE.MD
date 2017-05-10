@@ -71,3 +71,7 @@
 + import iView as ui framework
 + optimize serveral modules
 
+### v0.9.1
++ add module word
++ add component Message to make hint in pages
+

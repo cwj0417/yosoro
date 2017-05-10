@@ -1,5 +1,4 @@
 import {memo} from "../../libs/bg";
-import Vue from "vue";
 let storage = {
     get() {
         return memo.get();

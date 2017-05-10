@@ -1,5 +1,5 @@
 export default {
-    modules: [`memo`, `environment`, `dict`, `countdown`, `countdown-status`, `todo`, `todo-status`, `extract`, `tabs`],
+    modules: [`memo`, `environment`, `dict`, `word`, `countdown`, `countdown-status`, `todo`, `todo-status`, `extract`, `tabs`],
     snow: {
         Snow3num: 80,
         Snow3Size: 10,

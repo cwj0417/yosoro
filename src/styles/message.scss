@@ -1,0 +1,18 @@
+.yosoro-message {
+  font-size: 12px;
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  top: 16px;
+  left: 0;
+}
+.yosoro-message-txt-wrap {
+  width: auto;
+  vertical-align: middle;
+  position: absolute;
+  left: 40%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  background: #fff;
+}

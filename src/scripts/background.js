@@ -1,7 +1,6 @@
-import {badge, storage, notifier, csSender, environment} from "../libs/bg";
+import {badge, storage, notifier, csSender, environment, word} from "../libs/bg";
 import {reciever} from "../libs/cm";
 import "./init";
-
 
 
 const config = {
@@ -98,6 +97,32 @@ class StorageCache {
 let countdown = new CountDown();
 let storagecache = new StorageCache();
 
+let wordCache = {
+    key: null,
+    value: null,
+    setKey (key) {
+        this.key = key
+        this.check()
+    },
+    setValue (value) {
+        this.value = value
+        this.check()
+    },
+    check () {
+        if (this.key && this.value) {
+            let [key, value] = [this.key, this.value]
+            word.put({key, value})
+                .then(res => {
+                    console.log(res)
+                }, err => {
+                    console.log(err)
+                })
+            this.key = null
+            this.value = null
+        }
+    }
+}
+
 reciever
     .on("modules.get", () => {
         return storagecache.get("modules") || [];
@@ -142,4 +167,10 @@ reciever
                 csSender.send(`environment.snowParam`, state.snow);
                 csSender.send(`environment.filter`, state.filter);
             })
-    });
+    })
+    .on("word.key", (key) => {
+        wordCache.setKey(key)
+    })
+    .on("word.value", (value) => {
+        wordCache.setValue(value)
+    })

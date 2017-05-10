@@ -1,7 +1,6 @@
 import {menu, notifier, extract, tabs} from '../libs/bg';
 import {dict, appInfo} from "../libs/cm";
 
-
 const translate = function ({selectionText}) {
     dict.search(selectionText)
         .then((results) => {
@@ -60,13 +59,6 @@ const displayOnNewTab = function () {
     })
 }
 
-const showOptions = function () {
-    let id = appInfo.id;
-    tabs.create({
-        url: `chrome-extension://${id}/opts.html`
-    })
-}
-
 menu.removeAll();
 
 menu.create({
@@ -99,9 +91,3 @@ menu.create({
     contexts: ["browser_action"],
     onclick: displayOnNewTab
 });
-menu.create({
-    type: "normal",
-    title: "显示选项",
-    contexts: ["browser_action"],
-    onclick: showOptions
-})

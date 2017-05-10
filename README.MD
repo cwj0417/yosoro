@@ -79,3 +79,8 @@ change page theme.
 
 #### memo
 simple multi-tab memo.
+
+#### word
+
+select and press ctrl/alt + b/j(by default) to collect words and meaning to yosoro, and words will shown in popup page.
+custom tabs and options was available.

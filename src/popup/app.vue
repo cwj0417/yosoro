@@ -13,6 +13,7 @@
     import tabs from "./components/tabs"
     import environment from "./components/environment"
     import memo from "./components/memo"
+    import word from "./components/word"
 
     export default {
         data() {
@@ -35,7 +36,8 @@
             extract,
             tabs,
             environment,
-            memo
+            memo,
+            word
         },
         created() {
             this.$store.commit(`getModules`);

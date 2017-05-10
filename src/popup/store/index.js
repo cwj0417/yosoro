@@ -14,6 +14,8 @@ import environment from "./environment"
 
 import memo from "./memo"
 
+import word from "./word"
+
 import {sender} from "../../libs/cm";
 
 Vue.use(Vuex);
@@ -39,6 +41,7 @@ export default new Vuex.Store({
         extract,
         tabs,
         environment,
-        memo
+        memo,
+        word
     }
 })
