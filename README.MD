@@ -64,7 +64,7 @@ you can also select words/sentences and translate by right click menu.
 select your favored contents in webpages and right click found 'extract' to collect the contents.
 clear them in popup page after you have read it.
 
-#### todo/todo-status
+#### todo
 
 input your todo and press enter to record your inspiration.
 and clear them by click button `clear`.

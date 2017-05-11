@@ -28,7 +28,6 @@
             getList() {
                 sender.send(`modules.get`)
                         .then((modules) => {
-                            console.log(modules)
                             this.list = this.modules.map(name => ({
                                 name: name,
                                 isShown: modules.indexOf(name) >= 0

@@ -85,3 +85,6 @@
 ### v0.9.4
 + optimize commit.sh
 
+### v0.9.5
++ merge module: todo & todo-status
+
