@@ -79,3 +79,6 @@
 + fix bug for not setting collapse-pan name
 + update commit content adding log url
 
+### v0.9.3
++ update commit.sh
+
