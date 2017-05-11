@@ -7,7 +7,6 @@
     import countdown from "./components/countdown"
     import countdownStatus from "./components/countdown-status"
     import todo from "./components/todo"
-    import todoStatus from "./components/todo-status"
     import dict from "./components/dict"
     import extract from "./components/extract"
     import tabs from "./components/tabs"
@@ -31,7 +30,6 @@
             countdown,
             countdownStatus,
             todo,
-            todoStatus,
             dict,
             extract,
             tabs,
