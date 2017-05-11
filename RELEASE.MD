@@ -75,3 +75,7 @@
 + add module word
 + add component Message to make hint in pages
 
+### v0.9.2
++ fix bug for not setting collapse-pan name
++ update commit content adding log url
+

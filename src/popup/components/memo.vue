@@ -1,7 +1,7 @@
 <template>
     <module-wrap title="memo">
         <Collapse accordion>
-            <Panel v-for="(memo, index) in memos">
+            <Panel v-for="(memo, index) in memos" :name="memo.title">
                 {{memo.title}}
                 <div slot="content">
                     <Tabs>

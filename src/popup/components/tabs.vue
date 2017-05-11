@@ -2,7 +2,7 @@
     <module-wrap title="tabs">
         <button @click="collect">collect</button>
         <Collapse accordion>
-            <Panel v-for="(value, key) in tabs">
+            <Panel v-for="(value, key) in tabs" :name="value.name">
                 {{value.name}}
                 <div slot="content">
                     <input v-model="value.name" @keyup="modify(key, value.name)"/>

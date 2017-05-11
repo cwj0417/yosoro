@@ -23,7 +23,7 @@ then
     done
     echo "" >> RELEASE.MD;
     git add .
-    git commit -m 'version'${version}''
+    git commit -m 'version'${version}' see https://github.com/fjonas/yosoro/blob/master/RELEASE.MD#'${version}''
 	git tag v${version}
     git push yosoro master:master
 	git push yosoro v${version}
