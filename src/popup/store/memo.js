@@ -1,29 +1,18 @@
 import {memo} from "../../libs/bg";
-let storage = {
-    get() {
-        return memo.get();
-    },
-    put(value) {
-      return memo.put(value);
-    }
-};
 const state = [];
 const getters = {};
 const mutations = {
     [`memo/modify`](state, value) {
         state = value;
-        storage.put(value);
     },
     [`memo/add`](state) {
         state.push({
             title: "unnamed",
             content: ""
         });
-        storage.put(state);
     },
     [`memo/delete`](state, index) {
         state.splice(index, 1);
-        storage.put(state);
     },
     [`memo/set`](state, value) {
         for(let each of value) {
@@ -33,16 +22,25 @@ const mutations = {
 };
 const actions = {
     [`memo/modify`]({commit}, value) {
-        commit(`memo/modify`, value);
+        return memo.put(value)
+            .then(() => {
+                commit(`memo/modify`, value);
+            })
     },
     [`memo/add`]({commit}) {
-        commit(`memo/add`);
+        return memo.put(state)
+            .then(() => {
+                commit(`memo/add`);
+            })
     },
     [`memo/delete`]({commit}, index) {
-        commit(`memo/delete`, index);
+        return memo.put(state)
+            .then(() => {
+                commit(`memo/delete`, index);
+            })
     },
     [`memo/get`]({commit}) {
-        storage.get()
+        return memo.get()
             .then(res => {
                 commit(`memo/set`, res);
             }, err => {

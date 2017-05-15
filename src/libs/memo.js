@@ -6,6 +6,6 @@ export const memo = {
         return storage.get(storageKey);
     },
     put(value) {
-        return storage.set(storageKey, value);
+        return storage.set(storageKey, value)
     }
 };

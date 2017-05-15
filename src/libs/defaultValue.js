@@ -3,7 +3,7 @@ export default {
         config: {
             key: "b",
             value: "j",
-            currentTab: "english"
+            currentTab: "日本語"
         },
         content: {}
     }

@@ -67,7 +67,7 @@ clear them in popup page after you have read it.
 #### todo
 
 input your todo and press enter to record your inspiration.
-and clear them by click button `clear`.
+and check them by checking checkbox or clear them by clicking cross.
 
 #### tabs
 

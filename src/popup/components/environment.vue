@@ -4,17 +4,29 @@
             <Tab-pane label="snow">
                 isOn <input type="checkbox" v-model="state.snow.isOn"/>
                 <br>
-                <y-input title="number" type="number" placeholder="enter snow number" v-model="state.snow.num"
-                         class="input-normal"/>
-                <y-input title="size" type="number" placeholder="enter snow size" v-model="state.snow.size"
-                         class="input-normal"/>
-                <y-input title="speed" type="number" placeholder="enter snow speed" v-model="state.snow.speed"
-                         class="input-normal"/>
+                <i-input title="number" type="number" placeholder="enter snow number" v-model="state.snow.num"
+                         class="input-normal">
+                <span slot="prepend">number</span>
+                </i-input>
+                <i-input title="size" type="number" placeholder="enter snow size" v-model="state.snow.size"
+                         class="input-normal">
+                <span slot="prepend">size</span>
+                </i-input>
+                <i-input title="speed" type="number" placeholder="enter snow speed" v-model="state.snow.speed"
+                         class="input-normal">
+                <span slot="prepend">speed</span>
+                </i-input>
             </Tab-pane>
             <Tab-pane label="filter">
-                <y-input title="blur" type="range" v-model="state.filter.blur" class="input-normal"/>
-                <y-input title="grayscale" type="range" v-model="state.filter.grayscale" class="input-normal"/>
-                <y-input title="brightness" type="range" v-model="state.filter.brightness" class="input-normal"/>
+                <i-input title="blur" type="range" v-model="state.filter.blur" class="input-normal">
+                    <span slot="prepend">blur</span>
+                </i-input>
+                <i-input title="grayscale" type="range" v-model="state.filter.grayscale" class="input-normal">
+                    <span slot="prepend">grayscale</span>
+                </i-input>
+                <i-input title="brightness" type="range" v-model="state.filter.brightness" class="input-normal">
+                    <span slot="prepend">brightness</span>
+                </i-input>
             </Tab-pane>
         </Tabs>
     </module-wrap>

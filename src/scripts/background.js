@@ -146,20 +146,6 @@ reciever
         badge.clear();
         return true;
     })
-    .on("todo.add", (content) => {
-        let cur = storagecache.get("todoList") || [];
-        cur.push({
-            ts: Date.now(),
-            content: content
-        });
-        return storagecache.set("todoList", cur);
-    })
-    .on("todo.get", () => {
-        return storagecache.get("todoList");
-    })
-    .on("todo.set", (value) => {
-        return storagecache.set("todoList", value);
-    })
     .on("environment.getState", () => {
         environment.getState()
             .then(state => {

@@ -10,7 +10,9 @@
                         </Tab-pane>
                         <Tab-pane label="edit" icon="edit">
                             <button @click="del(index)">delete</button>
-                            <y-input v-model="memo.title" title="title" style="width:50%"/>
+                            <i-input v-model="memo.title" title="title" style="width:50%">
+                                <span slot="prepend">title</span>
+                            </i-input>
                             <textarea class="ta" v-model="memo.content" style="height:300px"></textarea>
                         </Tab-pane>
                     </Tabs>
@@ -24,6 +26,18 @@
     import {mapState, mapActions} from "vuex"
     import _ from "lodash"
     export default {
+        data () {
+            return {
+                handle: {
+                    suc: (msg = "saved...") => {
+                        this.$Message.success(msg)
+                    },
+                    err: (msg = "save failed...") => {
+                        this.$Message.error(msg)
+                    }
+                }
+            }
+        },
         computed: {
             ...mapState({
                 memos: `memo`
@@ -32,7 +46,8 @@
         methods: {
             ...mapActions({
                 add: `memo/add`,
-                del: `memo/delete`
+                del: `memo/delete`,
+                modify: `memo/modify`
             })
         },
         mounted() {
@@ -41,7 +56,8 @@
         watch: {
             memos: {
                 handler: _.debounce(function (value) {
-                    this.$store.dispatch(`memo/modify`, value);
+                    this.modify(value)
+                        .then(this.handle.suc, this.handle.err)
                 }, 350),
                 deep: true
             }

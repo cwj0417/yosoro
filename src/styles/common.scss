@@ -24,7 +24,7 @@ $TEXT: darken($CUR_THEME, 30%);
 $TEXT_DARK: darken($CUR_THEME, 60%);
 $FONT_SIZE: 10px;
 
-$HOVER_BG: #efefef;
+$COMMON_MARGIN: 10px;
 
 $TD_PADDING: 8px 4px;
 //layout
@@ -128,8 +128,11 @@ a, a:visited {
   color: $TEXT_DARK;
 }
 li {
-  box-shadow: 0 0 5px rgba(0,0,0,.5);
   padding: 3px;
+  border-bottom: 1px solid #ededed;
+}
+li:last-child {
+  border-bottom: none;
 }
 input[type=range] {
   cursor: pointer;
@@ -142,4 +145,11 @@ textarea {
   -moz-box-shadow:   0 0 1px 1px $CUR_THEME;
   box-shadow:   0 0 1px 1px $CUR_THEME;
   height: auto;
+}
+
+.mt {
+  margin-top: $COMMON_MARGIN;
+}
+.mb {
+  margin-bottom: $COMMON_MARGIN;
 }

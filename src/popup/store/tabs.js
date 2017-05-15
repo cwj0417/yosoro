@@ -29,13 +29,13 @@ const mutations = {
 
 const actions = {
     [`tabs/collect`]({commit}) {
-        tabs.getCurWindow()
+        return tabs.getCurWindow()
             .then(res => {
                 commit(`tabs/add`, res);
             })
     },
     [`tabs/getFromStorage`]({commit}) {
-        tabs.stGet()
+        return tabs.stGet()
             .then(res => {
                 commit(`tabs/set`, res);
             })

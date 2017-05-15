@@ -1,7 +1,9 @@
 <template>
     <module-wrap title="dictionary">
         <div>
-            <y-input title="word" placeholder="input here" type="text" v-model="word" class="input-normal"/>
+            <i-input title="word" placeholder="input here" type="text" v-model="word" class="input-normal">
+                <span slot="prepend">word</span>
+            </i-input>
             <div class="info-inline">{{info}}</div>
         </div>
         <div>

@@ -1,14 +1,14 @@
 .module-wrap {
-  margin: 10px;
-  padding: 10px;
-  background: $HOVER_BG;
+  margin: $COMMON_MARGIN;
+  padding: $COMMON_MARGIN;
+  background: #ddd;
   transition: all .2s ease;
   border-radius: 10px;
-  border: 1px solid $HOVER_BG;
+  border: 1px solid #efefef;
 }
 .module-wrap:hover {
   box-shadow: 0 2px 7px  $CUR_THEME;
-  background: lighten($HOVER_BG, 10%);
+  background: #fff;
 }
 .module-title {
   padding: 5px;

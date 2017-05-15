@@ -6,7 +6,8 @@ import config from "../config"
 // environment
 const snow = new snowFall()
 
-snow.start()
+// snow.start()
+// 暂时关了, todo: 根据状态开关, 并探测z-index
 
 reciever
     .on(`environment.snowSwitch`, function (isOn) {

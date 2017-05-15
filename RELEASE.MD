@@ -88,3 +88,7 @@
 ### v0.9.5
 + merge module: todo & todo-status
 
+### v0.9.6
++ catch error in chrome.storage
++ rewrite todo module
+

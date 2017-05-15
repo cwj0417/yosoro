@@ -1,4 +1,4 @@
-import {sender} from "../../libs/cm";
+import {todo} from "../../libs/bg";
 
 const state = {
     list: []
@@ -10,28 +10,47 @@ const mutations = {
     },
     [`todo/getList`](state) {
         return state.list;
+    },
+    [`todo/add`] (state, todo) {
+        state.list.push(todo)
     }
 };
 
 const actions = {
     [`todo/get`]({commit}) {
-        sender.send("todo.get")
+        todo.get()
             .then((list) => {
+                list = list.map(a => {
+                    return a.editing = false, a
+                })
                 commit(`todo/setList`, list);
             }, err => {
                 console.log(err);
             })
     },
-    [`todo/remove`]({state, commit}, index) {
-        state.list.splice(index, 1);
-        commit(`todo/setList`, state.list);
-        sender.send("todo.set", state.list);
+    [`todo/remove`]({state, commit}, item) {
+        state.list.splice(state.list.indexOf(item), 1);
+        return todo.put(state.list).then(() => {
+            commit(`todo/setList`, state.list);
+        }, () => {
+            dispatch(`todo/get`);
+        })
     },
-    [`todo/add`]({dispatch}, content) {
-        sender.send("todo.add", content)
+    [`todo/add`]({dispatch, commit}, content) {
+        let item = {
+            content,
+            ts: Date.now(),
+            done: false
+        }
+        return todo.add(item)
             .then(() => {
+                commit(`todo/add`, item)
+            }, () => {
                 dispatch(`todo/get`);
             });
+    },
+    [`todo/update`] ({}, item) {
+        return todo.update(item)
     }
 };
 
