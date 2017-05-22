@@ -92,3 +92,6 @@
 + catch error in chrome.storage
 + rewrite todo module
 
+### v0.9.7
++ optimize get and set methods in storage separating long values to multi-part
+
