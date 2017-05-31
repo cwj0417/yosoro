@@ -5,7 +5,7 @@
         </Row>
         <Row>
             <Tabs>
-                <Tab-pane v-for="(value, key) in words" :label="key">
+                <Tab-pane v-for="(value, key) in words" :label="key" :key="key">
                     <table>
                         <tr>
                             <th>单词</th>

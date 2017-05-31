@@ -1,7 +1,7 @@
 <template>
     <module-wrap title="memo">
         <Collapse accordion>
-            <Panel v-for="(memo, index) in memos" :name="memo.title">
+            <Panel v-for="(memo, index) in memos" :name="memo.title" :key="memo.title">
                 {{memo.title}}
                 <div slot="content">
                     <Tabs>
@@ -13,7 +13,8 @@
                             <i-input v-model="memo.title" title="title" style="width:50%">
                                 <span slot="prepend">title</span>
                             </i-input>
-                            <textarea class="ta" v-model="memo.content" style="height:300px"></textarea>
+                            <i-input type="textarea" class="ta" v-model="memo.content" :rows="10">
+                            </i-input>
                         </Tab-pane>
                     </Tabs>
                 </div>

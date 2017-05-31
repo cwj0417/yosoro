@@ -1,7 +1,7 @@
 <template>
     <module-wrap title="extract">
         <Collapse>
-            <Panel v-for="(value, key) in extracts" :name="key">
+            <Panel v-for="(value, key) in extracts" :name="key" :key="key">
                 {{key}}
                 <div slot="content">
                     <ul>

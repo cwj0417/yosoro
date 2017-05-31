@@ -1,6 +1,6 @@
 <template>
     <div>
-        <component v-for="module in modules" :is="module"></component>
+        <component v-for="module in modules" :is="module" :key="module"></component>
     </div>
 </template>
 <script type="text/ecmascript-6">
@@ -13,6 +13,7 @@
     import environment from "./components/environment"
     import memo from "./components/memo"
     import word from "./components/word"
+    import blogBacklog from "./components/blog-backlog.vue"
 
     export default {
         data() {
@@ -35,7 +36,8 @@
             tabs,
             environment,
             memo,
-            word
+            word,
+            blogBacklog
         },
         created() {
             this.$store.commit(`getModules`);

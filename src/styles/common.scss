@@ -131,20 +131,15 @@ li {
   padding: 3px;
   border-bottom: 1px solid #ededed;
 }
+li:hover {
+  background: #f7f7f7;
+  color: #175882;
+}
 li:last-child {
   border-bottom: none;
 }
 input[type=range] {
   cursor: pointer;
-}
-textarea {
-  width: 100%;
-  border: 0;
-  resize: none;
-  -webkit-box-shadow:  0 0 1px 1px $CUR_THEME;
-  -moz-box-shadow:   0 0 1px 1px $CUR_THEME;
-  box-shadow:   0 0 1px 1px $CUR_THEME;
-  height: auto;
 }
 
 .mt {

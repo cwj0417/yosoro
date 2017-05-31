@@ -1,49 +1,70 @@
-<style scoped lang="sass" rel="stylesheet/scss">
+<style scoped lang="scss">
     .filter {
-        li { display:inline;
-        border:1px solid #ededed;
-        cursor:pointer;
+        li {
+            display: inline;
+            border: 1px solid #ededed;
+            cursor: pointer;
+        }
+        .active {
+            background: #ededed;
+        }
     }
-        .active { background:#ededed;
-    } }
-        .todo-list {
-            li { word-wrap:break-word;
-            word-break:break-all;
-    }
+
+    .todo-list {
+        li {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
         li:hover {
-            background: #f7f7f7; color: #175882;
-            .cross { display:block;
-    } }
-        i:before { color:#ccc;
-    }
-        span { transition:all .5s;
-    }
-        .edit { display:none;
-        width:100%;
-        padding-left:5px;
-    }
+            .cross {
+                display: block;
+            }
+        }
+        i:before {
+            color: #ccc;
+        }
+        span {
+            transition: all .5s;
+        }
+        .edit {
+            display: none;
+            width: 100%;
+            padding-left: 5px;
+        }
         .done {
-            span { text-decoration:line-through;
-            color:#ccc;
-    } }
+            span {
+                text-decoration: line-through;
+                color: #ccc;
+            }
+        }
         .editing {
-            span { display:none;
+            span {
+                display: none;
+            }
+            .edit {
+                display: block;
+            }
+        }
+        .cross {
+            padding: 3px 10px;
+            display: none;
+            cursor: pointer;
+            &:hover i:before {
+                color: #333;
+            }
+        }
+        .check {
+            padding: 3px 7px;
+        }
     }
-        .edit { display:block;
-    } }
-        .cross { padding:3px 10px;
-        display:none;
-        cursor:pointer;
-        &:hover i:before { color:#333;
-    }}
-        .check { padding:3px 7px;
-    } }
-        .list-enter-active, .list-leave-active {
-            transition:all .5s;
+
+    .list-enter-active, .list-leave-active {
+        transition: all .5s;
     }
-        .list-enter, .list-leave-to {
-            opacity: 0;
-            transform: translateX(50px);
+
+    .list-enter, .list-leave-to {
+        opacity: 0;
+        transform: translateX(50px);
     }
 </style>
 <template>
@@ -105,6 +126,7 @@
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex"
+    import {dateFormat} from "../../libs/util"
     const filter = {
         all: todo => todo,
         active: todo => !todo.done,
@@ -153,7 +175,7 @@
                 update: `todo/update`
             }),
             showCreate (time) {
-                this.$Message.info(time)
+                this.$Message.info(dateFormat(time))
             },
             add() {
                 if (this.content) {

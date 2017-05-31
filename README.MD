@@ -84,3 +84,7 @@ simple multi-tab memo.
 
 select and press ctrl/alt + b/j(by default) to collect words and meaning to yosoro, and words will shown in popup page.
 custom tabs and options was available.
+
+#### blog backlog
+
+records blog todos and schedule. and some utils for easier organizing archive.

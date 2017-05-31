@@ -16,6 +16,8 @@ import memo from "./memo"
 
 import word from "./word"
 
+import blogBacklog from "./blog-backlog"
+
 import {sender} from "../../libs/cm";
 
 Vue.use(Vuex);
@@ -42,6 +44,7 @@ export default new Vuex.Store({
         tabs,
         environment,
         memo,
-        word
+        word,
+        blogBacklog
     }
 })
