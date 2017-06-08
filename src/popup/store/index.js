@@ -18,7 +18,7 @@ import word from "./word"
 
 import blogBacklog from "./blog-backlog"
 
-import {sender} from "../../libs/cm";
+import {modules} from "../../libs/bg"
 
 Vue.use(Vuex);
 
@@ -26,10 +26,10 @@ const state = {
     modules: []
 };
 const mutations = {
-    getModules(state) {
-        sender.send(`modules.get`)
-            .then((modules) => {
-                state.modules = modules;
+    getModules (state) {
+        modules.get()
+            .then(modules => {
+                state.modules = modules
             });
     }
 };

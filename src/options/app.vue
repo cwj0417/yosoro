@@ -13,9 +13,8 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-    import {sender} from "../libs/cm";
     import config from "../config";
-    import {storage} from "../libs/bg";
+    import {modules, storage} from "../libs/bg";
     export default {
         data() {
             return {
@@ -26,7 +25,7 @@
         },
         methods: {
             getList() {
-                sender.send(`modules.get`)
+                modules.get()
                         .then((modules) => {
                             this.list = this.modules.map(name => ({
                                 name: name,
@@ -35,8 +34,8 @@
                         });
             },
             change() {
-                let modules = this.list.filter(item => item.isShown).map(item => item.name);
-                sender.send(`modules.set`, modules);
+                let modules_ = this.list.filter(item => item.isShown).map(item => item.name);
+                modules.put(modules_);
             },
             axport() {
                 storage.getAll()

@@ -1,4 +1,4 @@
-import {badge, storage, notifier, csSender, environment, word} from "../libs/bg";
+import {badge, notifier, csSender, environment, word} from "../libs/bg";
 import {reciever} from "../libs/cm";
 import "./init";
 
@@ -59,43 +59,7 @@ class CountDown {
     }
 }
 
-class StorageCache {
-    constructor() {
-        this.fetch();
-        setInterval(this.fetch, config.storageCacheRefresh * 1000);
-    }
-
-    fetch() {
-        storage.getAll()
-            .then((list) => {
-                this.cache = list;
-            })
-    }
-
-    set(key, value) {
-        this.cache[key] = value;
-        storage.set(key, value);
-    }
-
-    get(key) {
-        return this.cache[key];
-    }
-
-    sRem(set, key) {
-        let result = this.get(set);
-        (key in result) && delete result[key];
-        return this.set(set, result);
-    }
-
-    sAdd(set, key, content) {
-        let result = this.get(set);
-        result = result || {};
-        result[key] = content;
-        this.set(set, result);
-    }
-}
 let countdown = new CountDown();
-let storagecache = new StorageCache();
 
 let wordCache = {
     key: null,
@@ -124,12 +88,6 @@ let wordCache = {
 }
 
 reciever
-    .on("modules.get", () => {
-        return storagecache.get("modules") || [];
-    })
-    .on("modules.set", (list) => {
-        return storagecache.set("modules", list);
-    })
     .on("countdown.set", ({content, timeout}) => {
         countdown.push(+timeout, content);
         return true;
