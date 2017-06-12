@@ -67,12 +67,12 @@ menu.create({
     contexts: ["selection"],
     onclick: translate
 });
-menu.create({
-    type: "normal",
-    title: "摘录",
-    contexts: ["selection"],
-    onclick: putExtract
-});
+// menu.create({
+//     type: "normal",
+//     title: "摘录",
+//     contexts: ["selection"],
+//     onclick: putExtract
+// });
 menu.create({
     type: "normal",
     title: "收集tab",

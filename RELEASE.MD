@@ -102,3 +102,6 @@
 ### v0.9.10
 + modules can be folded
 
+### v0.9.11
++ remove extract in menu
+
