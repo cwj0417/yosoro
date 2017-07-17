@@ -1,19 +1,19 @@
 <template>
     <module-wrap title="memo">
         <Collapse accordion>
-            <Panel v-for="(memo, index) in memos" :name="memo.title" :key="memo.title">
+            <Panel v-for="(memo, index) in memos" :name="memo.title" :key="memo">
                 {{memo.title}}
                 <div slot="content">
                     <Tabs>
                         <Tab-pane label="content" icon="eye">
-                            <md v-model="memo.content"></md>
+                            <md :value="memo.content"></md>
                         </Tab-pane>
                         <Tab-pane label="edit" icon="edit">
                             <button @click="del(index)">delete</button>
-                            <i-input v-model="memo.title" title="title" style="width:50%">
+                            <i-input :value="memo.title" title="title" style="width:50%" @keyup.native="updateTitle(index, $event.target.value)">
                                 <span slot="prepend">title</span>
                             </i-input>
-                            <i-input type="textarea" class="ta" v-model="memo.content" :rows="10">
+                            <i-input type="textarea" class="ta" :value="memo.content" :rows="10" @keyup.native="updateContent(index, $event.target.value)">
                             </i-input>
                         </Tab-pane>
                     </Tabs>
@@ -30,11 +30,11 @@
         data () {
             return {
                 handle: {
-                    suc: (msg = "saved...") => {
-                        this.$Message.success(msg)
+                    suc: () => {
+                        this.$Message.success("saved...")
                     },
-                    err: (msg = "save failed...") => {
-                        this.$Message.error(msg)
+                    err: () => {
+                        this.$Message.error("save failed...")
                     }
                 }
             }
@@ -48,20 +48,19 @@
             ...mapActions({
                 add: `memo/add`,
                 del: `memo/delete`,
-                modify: `memo/modify`
-            })
+                modify: `memo/modify`,
+                _updateTitle: `memo/updateTitle`,
+                _updateContent: `memo/updateContent`
+            }),
+            updateTitle: _.debounce(function (index, value) {
+                this._updateTitle({index, value}).then(this.handle.suc, this.handle.err)
+            }, 350),
+            updateContent:  _.debounce(function(index, value) {
+                this._updateContent({index, value}).then(this.handle.suc, this.handle.err)
+            }, 350)
         },
         mounted() {
             this.$store.dispatch(`memo/get`);
-        },
-        watch: {
-            memos: {
-                handler: _.debounce(function (value) {
-                    this.modify(value)
-                        .then(this.handle.suc, this.handle.err)
-                }, 350),
-                deep: true
-            }
         }
     }
 </script>

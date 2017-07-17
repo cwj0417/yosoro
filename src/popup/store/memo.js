@@ -18,14 +18,17 @@ const mutations = {
         for(let each of value) {
             state.push(each);
         }
+    },
+    [`memo/updateTitle`] (state, {index, value}) {
+        state[index].title = value
+    },
+    [`memo/updateContent`] (state, {index, value}) {
+        state[index].content = value
     }
 };
 const actions = {
-    [`memo/modify`]({commit}, value) {
-        return memo.put(value)
-            .then(() => {
-                commit(`memo/modify`, value);
-            })
+    [`memo/modify`]({commit}) {
+        return memo.put(state)
     },
     [`memo/add`]({commit}) {
         return memo.put(state)
@@ -46,6 +49,14 @@ const actions = {
             }, err => {
                 console.log(err);
             })
+    },
+    [`memo/updateTitle`] ({commit, dispatch}, {index, value}) {
+        commit(`memo/updateTitle`, {index, value})
+        return dispatch(`memo/modify`)
+    },
+    [`memo/updateContent`] ({commit, dispatch}, {index, value}) {
+        commit(`memo/updateContent`, {index, value})
+        return dispatch(`memo/modify`)
     }
 };
 export default {

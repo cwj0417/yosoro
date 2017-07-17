@@ -105,3 +105,6 @@
 ### v0.9.11
 + remove extract in menu
 
+### v0.9.12
++ correct incorrect usage of components
+

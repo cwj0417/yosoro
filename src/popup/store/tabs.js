@@ -22,7 +22,7 @@ const mutations = {
         Vue.set(state, `dTabs`, fetchedTabs);
     },
     [`tabs/modifyName`](state, {id, content}) {
-        Vue.set(state.dTabs[id], `name`, content);
+        state.dTabs[id].name = content
         tabs.stSet(state.dTabs);
     }
 };

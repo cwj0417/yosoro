@@ -2,10 +2,10 @@
     <module-wrap title="tabs">
         <button @click="collect">collect</button>
         <Collapse accordion>
-            <Panel v-for="(value, key) in tabs" :name="value.name" :key="value.name">
+            <Panel v-for="(value, key) in tabs" :name="value.name" :key="value">
                 {{value.name}}
                 <div slot="content">
-                    <input v-model="value.name" @keyup="modify(key, value.name)"/>
+                    <input :value="value.name" @keyup.enter="modify(key, $event)"/>
                     <button @click="restoreStay({id: key,resTabs: value.tabs})">restore without clear</button>
                     <button @click="restoreBlank({id: key,resTabs: value.tabs})">restore in new window</button>
                     <button @click="restore({id: key,resTabs: value.tabs})">restore</button>
@@ -51,9 +51,10 @@
                 this.$store.dispatch(`tabs/restoreBlank`, {id, resTabs});
                 this.$store.dispatch(`tabs/clear`, id);
             },
-            modify: _.debounce(function (id, content) {
+            modify: function (id, evt) {
+                let content = evt.target.value;
                 this.$store.dispatch(`tabs/modifyName`, {id, content});
-            }, 350)
+            }
         },
         created() {
             this.$store.dispatch(`tabs/getFromStorage`);
