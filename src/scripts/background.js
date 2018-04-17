@@ -2,6 +2,12 @@ import {badge, notifier, csSender, environment, word} from "../libs/bg";
 import {reciever} from "../libs/cm";
 import "./init";
 
+setInterval(() => {
+    notifier.basic({
+        title: `30分钟了`,
+        message: `可以起来动动了`
+    })
+}, 1000 * 60 * 30)
 
 const config = {
     storageCacheRefresh: 30

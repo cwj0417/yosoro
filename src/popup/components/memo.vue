@@ -54,10 +54,10 @@
             }),
             updateTitle: _.debounce(function (index, value) {
                 this._updateTitle({index, value}).then(this.handle.suc, this.handle.err)
-            }, 350),
+            }, 550),
             updateContent:  _.debounce(function(index, value) {
                 this._updateContent({index, value}).then(this.handle.suc, this.handle.err)
-            }, 350)
+            }, 550)
         },
         mounted() {
             this.$store.dispatch(`memo/get`);

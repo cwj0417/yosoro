@@ -108,3 +108,6 @@
 ### v0.9.12
 + correct incorrect usage of components
 
+### v0.9.13
++ push notification reminding exercise every 30 mins
+
