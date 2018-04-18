@@ -111,3 +111,6 @@
 ### v0.9.13
 + push notification reminding exercise every 30 mins
 
+### v0.9.14
++ fix bug: memo flash
+

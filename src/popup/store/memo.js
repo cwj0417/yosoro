@@ -52,11 +52,11 @@ const actions = {
     },
     [`memo/updateTitle`] ({commit, dispatch}, {index, value}) {
         commit(`memo/updateTitle`, {index, value})
-        return dispatch(`memo/modify`)
+        dispatch(`memo/modify`)
     },
     [`memo/updateContent`] ({commit, dispatch}, {index, value}) {
         commit(`memo/updateContent`, {index, value})
-        return dispatch(`memo/modify`)
+        dispatch(`memo/modify`)
     }
 };
 export default {

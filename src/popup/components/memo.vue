@@ -48,16 +48,16 @@
             ...mapActions({
                 add: `memo/add`,
                 del: `memo/delete`,
-                modify: `memo/modify`,
+                _modify: `memo/modify`,
                 _updateTitle: `memo/updateTitle`,
                 _updateContent: `memo/updateContent`
             }),
-            updateTitle: _.debounce(function (index, value) {
-                this._updateTitle({index, value}).then(this.handle.suc, this.handle.err)
-            }, 550),
-            updateContent:  _.debounce(function(index, value) {
-                this._updateContent({index, value}).then(this.handle.suc, this.handle.err)
-            }, 550)
+            updateTitle (index, value) {
+                this._updateTitle({index, value})
+            },
+            updateContent (index, value) {
+                this._updateContent({index, value})
+            }
         },
         mounted() {
             this.$store.dispatch(`memo/get`);
