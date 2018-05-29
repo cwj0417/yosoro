@@ -25,7 +25,6 @@
 </template>
 <script type="text/ecmascript-6">
     import {mapState, mapActions} from "vuex"
-    import _ from "lodash"
     export default {
         data () {
             return {

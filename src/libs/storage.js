@@ -2,7 +2,7 @@ import {getBytes} from "./util"
 import lodash from "lodash"
 let {isArray, isPlainObject} = lodash
 const invalidItemBytes = function ({key, value}) {
-    return getBytes(value) + key.length > 8192 - 4
+    return getBytes(value) + key.length > 8192 - 300
 }
 const catchError = function (rejectFn) {
     if(chrome.runtime.lastError) {
@@ -42,7 +42,7 @@ const getBatch = function (key, value) {
     }
     return ret
 }
-const merge = function (arr) {
+function merge(arr) {
     // 判断参数元素是数组还是对象, 再进行merge, 返回
     let ret = null
     if (isArray(arr[0])) {

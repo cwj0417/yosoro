@@ -115,5 +115,10 @@
 + fix bug: memo flash
 
 ### v0.9.15
-+ module wrap click area
++ magnify module wrap click area
+
+### v0.9.16
++ fix storage threshold
++ remove editing status put into storage
++ fix not sync to storage after delete memo
 

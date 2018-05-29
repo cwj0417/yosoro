@@ -36,10 +36,11 @@ const actions = {
                 commit(`memo/add`);
             })
     },
-    [`memo/delete`]({commit}, index) {
+    [`memo/delete`]({commit, dispatch}, index) {
         return memo.put(state)
             .then(() => {
                 commit(`memo/delete`, index);
+                dispatch(`memo/modify`)
             })
     },
     [`memo/get`]({commit}) {

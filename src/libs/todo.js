@@ -5,7 +5,7 @@ export const todo = {
         return storage.get(storageKey)
     },
     put (list) {
-        return storage.set(storageKey, list)
+        return storage.set(storageKey, list.map(i => {delete i.editing; return i}))
     },
     add (todo) {
         return this.get()
