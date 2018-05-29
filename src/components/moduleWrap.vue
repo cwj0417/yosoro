@@ -1,8 +1,8 @@
 <template>
     <div class="module-wrap">
-        <section class="module-title">
+        <section class="module-title" style="cursor: pointer;" @click="toggleFold">
             <span>{{title}}&nbsp;&nbsp;&nbsp;</span>
-            <span class="arrow" :style="{transform: foldStyle}" @click="toggleFold">
+            <span :style="{transform: foldStyle}">
                 <Icon type="arrow-down-b"></Icon>
             </span>
         </section>

@@ -114,3 +114,6 @@
 ### v0.9.14
 + fix bug: memo flash
 
+### v0.9.15
++ module wrap click area
+
